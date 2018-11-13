@@ -1,0 +1,70 @@
+
+package industrirumah;
+import java.util.Scanner;
+
+class produksi{
+    private int tepung;
+    private int gula;
+    private int telur;
+    private int mentega;
+    private int hgtepung;
+    private int hggula;
+    private int hgtelur;
+    private int hgmentega;
+    private int Jumlahproduksi;
+    
+    private void Jumlah(){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Masukkan Jumlah produksi yang diinginkan");
+        Jumlahproduksi=input.nextInt();
+        
+    }
+    //jumlah bahan dapat di sesuaikan dengan perbandingan resep
+    private int resep(){
+        Jumlah();
+        tepung=7*Jumlahproduksi;
+        gula=5*Jumlahproduksi;
+        telur=3*Jumlahproduksi;
+        mentega=4*Jumlahproduksi;
+        return 0;
+    }
+    //Harga dapat di ubah dan di sesuaikan
+    private int harga(){
+        resep();
+        hgtepung=2000*tepung;
+        hggula=1500*gula;
+        hgtelur=400*telur;
+        hgmentega=800*mentega;
+        return 0;
+    }
+    public void TampilResep(){
+        harga();
+        System.out.println("======Jumlah Bahan dan Harga======");
+        System.out.println("Jumlah tepung : "+tepung+" Harga : "+hgtepung);
+        System.out.println("Jumlah gula : "+gula+" Harga : "+hggula);
+        System.out.println("Jumlah telur : "+telur+" Harga : "+hgtelur);
+        System.out.println("Jumlah mentega : "+mentega+" Harga : "+hgmentega);  
+    }
+    
+    
+
+}
+public class IndustriRumah {
+    
+
+    public static void main(String[] args) {
+       Scanner masuk=new Scanner(System.in);
+       String ya="ya";
+       while(ya.equalsIgnoreCase("ya")){ 
+           produksi baru=new produksi();
+           baru.TampilResep();
+           System.out.print("Apakah anda ingin memeriksa lagi ya/tidak : ");
+           ya=masuk.nextLine();
+           
+       };
+       if(ya.equalsIgnoreCase("tidak"))
+           System.out.print("Terima kasih");
+        }
+    }
+    
+
